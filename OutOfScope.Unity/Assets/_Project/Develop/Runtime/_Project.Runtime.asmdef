@@ -1,6 +1,6 @@
 {
     "name": "_Project.Runtime",
-    "rootNamespace": "_Project.Develop.Runtime",
+    "rootNamespace": "",
     "references": [
         "GUID:5563437496939e5469cb6c3fadc035b0",
         "GUID:5b45766e5861c954ea9b80ccc5982fdf",

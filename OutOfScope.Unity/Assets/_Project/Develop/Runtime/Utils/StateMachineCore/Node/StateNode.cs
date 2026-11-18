@@ -1,8 +1,8 @@
-﻿using _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.StateMachineCore.States;
+﻿using _Project.Develop.Runtime.Utils.StateMachineCore.States;
 using System;
 using System.Collections.Generic;
 
-namespace _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.StateMachineCore.Node
+namespace _Project.Develop.Runtime.Utils.StateMachineCore.Node
 {
     public class StateNode<TState> : IDisposable where TState : class, IState
     {

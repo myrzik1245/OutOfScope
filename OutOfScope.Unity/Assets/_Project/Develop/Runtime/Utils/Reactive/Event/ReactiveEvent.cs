@@ -1,7 +1,7 @@
-﻿using _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.Reactive.Core;
+﻿using _Project.Develop.Runtime.Utils.Reactive.Core;
 using System;
 
-namespace _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.Reactive.Event
+namespace _Project.Develop.Runtime.Utils.Reactive.Event
 {
     public class ReactiveEvent :  IReadOnlyReactiveEvent
     {

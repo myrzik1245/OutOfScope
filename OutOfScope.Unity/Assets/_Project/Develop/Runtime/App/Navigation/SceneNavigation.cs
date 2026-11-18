@@ -1,7 +1,7 @@
-﻿using _Project.Develop.Runtime.Infrastructure._Project.Develop.Runtime.Infrastructure.SceneManagment;
-using _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.ConfigsManagment;
+﻿using _Project.Develop.Runtime.Infrastructure.SceneManagment;
+using _Project.Develop.Runtime.Utils.ConfigsManagment;
 
-namespace _Project.Develop.Runtime._Project.Develop.Runtime.App.Navigation
+namespace _Project.Develop.Runtime.App.Navigation
 {
     public class SceneNavigation
     {

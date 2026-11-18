@@ -1,11 +1,11 @@
-﻿using _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.CoroutineManagment;
-using _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.Reactive.Event;
-using _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.Reactive.Variable;
+﻿using _Project.Develop.Runtime.Utils.CoroutineManagment;
+using _Project.Develop.Runtime.Utils.Reactive.Event;
+using _Project.Develop.Runtime.Utils.Reactive.Variable;
 using System;
 using System.Collections;
 using UnityEngine;
 
-namespace _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.ProcessManagment
+namespace _Project.Develop.Runtime.Utils.ProcessManagment
 {
     public class Process : IProcess
     {

@@ -1,9 +1,9 @@
-﻿using _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.AssetsManagment;
+﻿using _Project.Develop.Runtime.Utils.AssetsManagment;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.ConfigsManagment.Loaders
+namespace _Project.Develop.Runtime.Utils.ConfigsManagment.Loaders
 {
     public class AssetsConfigsLoader : IConfigsLoader
     {

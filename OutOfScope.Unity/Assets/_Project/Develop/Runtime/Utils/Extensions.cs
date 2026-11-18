@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using Random = UnityEngine.Random;
 using Object = UnityEngine.Object;
 
-namespace _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils
+namespace _Project.Develop.Runtime.Utils
 {
     public static class Extensions
     {

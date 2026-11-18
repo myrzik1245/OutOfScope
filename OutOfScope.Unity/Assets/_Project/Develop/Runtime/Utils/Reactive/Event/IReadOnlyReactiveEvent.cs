@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.Reactive.Event
+namespace _Project.Develop.Runtime.Utils.Reactive.Event
 {
     public interface IReadOnlyReactiveEvent
     {

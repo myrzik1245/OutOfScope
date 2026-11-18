@@ -1,6 +1,6 @@
 {
     "name": "_Project.Infrastructure",
-    "rootNamespace": "_Project.Develop.Runtime.Infrastructure",
+    "rootNamespace": "",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

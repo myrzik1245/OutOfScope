@@ -1,8 +1,8 @@
-﻿using _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.Reactive.Event;
-using _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.Reactive.Variable;
+﻿using _Project.Develop.Runtime.Utils.Reactive.Event;
+using _Project.Develop.Runtime.Utils.Reactive.Variable;
 using System;
 
-namespace _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.ProcessManagment
+namespace _Project.Develop.Runtime.Utils.ProcessManagment
 {
     public interface IProcess
     {

@@ -1,8 +1,8 @@
-﻿using _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.Reactive.Core;
+﻿using _Project.Develop.Runtime.Utils.Reactive.Core;
 using System;
 using System.Collections.Generic;
 
-namespace _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.Reactive.Variable
+namespace _Project.Develop.Runtime.Utils.Reactive.Variable
 {
     public class ReactiveVariable<T> : IReadOnlyReactiveVariable<T>
     {

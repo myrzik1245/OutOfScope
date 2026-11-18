@@ -1,7 +1,7 @@
-﻿using _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.Conditions;
-using _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.StateMachineCore.States;
+﻿using _Project.Develop.Runtime.Utils.ConditionsManagment;
+using _Project.Develop.Runtime.Utils.StateMachineCore.States;
 
-namespace _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.StateMachineCore
+namespace _Project.Develop.Runtime.Utils.StateMachineCore
 {
     public interface IStateMachineOptions<TState> where TState : class, IState
     {

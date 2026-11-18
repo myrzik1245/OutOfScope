@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.AssetsManagment
+namespace _Project.Develop.Runtime.Utils.AssetsManagment
 {
     public interface IAssetsLoader
     {

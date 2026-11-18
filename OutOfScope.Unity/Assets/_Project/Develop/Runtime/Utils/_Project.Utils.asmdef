@@ -1,6 +1,6 @@
 {
     "name": "_Project.Utils",
-    "rootNamespace": "_Project.Develop.Runtime.Utils",
+    "rootNamespace": "",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

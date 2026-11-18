@@ -1,8 +1,8 @@
-﻿using _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.ConfigsManagment.Loaders;
+﻿using _Project.Develop.Runtime.Utils.ConfigsManagment.Loaders;
 using System;
 using System.Collections.Generic;
 
-namespace _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.ConfigsManagment
+namespace _Project.Develop.Runtime.Utils.ConfigsManagment
 {
     public class ConfigsProviderService
     {

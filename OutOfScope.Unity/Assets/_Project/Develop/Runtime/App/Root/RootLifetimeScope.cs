@@ -1,16 +1,16 @@
-﻿using _Project.Develop.Runtime._Project.Develop.Runtime.App.Navigation;
-using _Project.Develop.Runtime.Infrastructure._Project.Develop.Runtime.Infrastructure.SceneManagment;
-using _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.AssetsManagment;
-using _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.ConfigsManagment;
-using _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.ConfigsManagment.Loaders;
-using _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.CoroutineManagment;
-using _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.ProcessManagment;
+﻿using _Project.Develop.Runtime.App.Navigation;
+using _Project.Develop.Runtime.Infrastructure.SceneManagment;
+using _Project.Develop.Runtime.Utils.AssetsManagment;
+using _Project.Develop.Runtime.Utils.ConfigsManagment;
+using _Project.Develop.Runtime.Utils.ConfigsManagment.Loaders;
+using _Project.Develop.Runtime.Utils.CoroutineManagment;
+using _Project.Develop.Runtime.Utils.ProcessManagment;
 using System;
 using System.Collections.Generic;
 using VContainer;
 using VContainer.Unity;
 
-namespace _Project.Develop.Runtime._Project.Develop.Runtime.App.Root
+namespace _Project.Develop.Runtime.App.Root
 {
     public class RootLifetimeScope : LifetimeScope
     {

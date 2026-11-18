@@ -1,8 +1,8 @@
-﻿using _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.Reactive.Event;
+﻿using _Project.Develop.Runtime.Utils.Reactive.Event;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.Reactive.List
+namespace _Project.Develop.Runtime.Utils.Reactive.List
 {
     public class ReactiveList<T> : IEnumerable<T>
     {

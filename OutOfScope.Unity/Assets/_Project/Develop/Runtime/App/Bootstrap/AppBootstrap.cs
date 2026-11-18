@@ -1,8 +1,8 @@
-﻿using _Project.Develop.Runtime._Project.Develop.Runtime.App.Navigation;
-using _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.ConfigsManagment;
+﻿using _Project.Develop.Runtime.App.Navigation;
+using _Project.Develop.Runtime.Utils.ConfigsManagment;
 using VContainer.Unity;
 
-namespace _Project.Develop.Runtime._Project.Develop.Runtime.App.Bootstrap
+namespace _Project.Develop.Runtime.App.Bootstrap
 {
     public class AppBootstrap : IStartable
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.Conditions
+namespace _Project.Develop.Runtime.Utils.ConditionsManagment
 {
     public class FuncCondition : ICondition
     {

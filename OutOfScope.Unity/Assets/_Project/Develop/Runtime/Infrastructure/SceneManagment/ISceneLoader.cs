@@ -1,6 +1,6 @@
 ﻿using UnityEngine.SceneManagement;
 
-namespace _Project.Develop.Runtime.Infrastructure._Project.Develop.Runtime.Infrastructure.SceneManagment
+namespace _Project.Develop.Runtime.Infrastructure.SceneManagment
 {
     public interface ISceneLoader
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.Reactive.Core
+namespace _Project.Develop.Runtime.Utils.Reactive.Core
 {
 
     public class Subscriber : IDisposable

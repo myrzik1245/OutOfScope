@@ -1,6 +1,6 @@
-﻿using _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.Reactive.Event;
+﻿using _Project.Develop.Runtime.Utils.Reactive.Event;
 
-namespace _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.StateMachineCore.States
+namespace _Project.Develop.Runtime.Utils.StateMachineCore.States
 {
     public abstract class State : IState
     {

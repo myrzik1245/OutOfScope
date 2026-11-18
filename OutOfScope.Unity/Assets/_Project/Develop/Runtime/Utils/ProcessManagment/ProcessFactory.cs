@@ -1,6 +1,6 @@
-﻿using _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.CoroutineManagment;
+﻿using _Project.Develop.Runtime.Utils.CoroutineManagment;
 
-namespace _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.ProcessManagment
+namespace _Project.Develop.Runtime.Utils.ProcessManagment
 {
     public class ProcessFactory
     {

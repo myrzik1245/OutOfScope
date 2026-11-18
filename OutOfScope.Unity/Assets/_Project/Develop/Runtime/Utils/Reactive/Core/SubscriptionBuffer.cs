@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.Reactive.Core
+namespace _Project.Develop.Runtime.Utils.Reactive.Core
 {
     internal class SubscriptionBuffer<TSubscriber>
     {

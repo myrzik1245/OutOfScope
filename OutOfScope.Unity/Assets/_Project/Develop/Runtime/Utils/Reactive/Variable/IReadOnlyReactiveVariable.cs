@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace _Project.Develop.Runtime.Utils._Project.Develop.Runtime.Utils.Reactive.Variable
+namespace _Project.Develop.Runtime.Utils.Reactive.Variable
 {
     public interface IReadOnlyReactiveVariable<T>
     {

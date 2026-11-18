@@ -1,7 +1,7 @@
 ﻿using VContainer;
 using VContainer.Unity;
 
-namespace _Project.Develop.Runtime._Project.Develop.Runtime.App.MainMenu
+namespace _Project.Develop.Runtime.App.MainMenu
 {
     public class MainMenuLifetimeScope : LifetimeScope
     {

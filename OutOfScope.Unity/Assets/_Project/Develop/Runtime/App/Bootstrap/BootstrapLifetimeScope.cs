@@ -1,7 +1,7 @@
 ﻿using VContainer;
 using VContainer.Unity;
 
-namespace _Project.Develop.Runtime._Project.Develop.Runtime.App.Bootstrap
+namespace _Project.Develop.Runtime.App.Bootstrap
 {
     public class BootstrapLifetimeScope : LifetimeScope
     {

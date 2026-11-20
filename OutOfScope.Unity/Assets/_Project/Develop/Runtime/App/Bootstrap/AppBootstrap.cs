@@ -1,5 +1,6 @@
-﻿using _Project.Develop.Runtime.App.Navigation;
-using _Project.Develop.Runtime.Utils.ConfigsManagment;
+﻿using _Project.Develop.Runtime.App.Gameplay;
+using _Project.Develop.Runtime.App.Navigation;
+using _Project.Develop.Runtime.Infrastructure.ConfigsManagment;
 using VContainer.Unity;
 
 namespace _Project.Develop.Runtime.App.Bootstrap
@@ -21,7 +22,7 @@ namespace _Project.Develop.Runtime.App.Bootstrap
             
             _configsProviderService.Load();
             
-            _sceneNavigation.OpenMainMenu();
+            _sceneNavigation.OpenGameplay(new GameplayInputArgs(0));
         }
 
         private void SetupApp()

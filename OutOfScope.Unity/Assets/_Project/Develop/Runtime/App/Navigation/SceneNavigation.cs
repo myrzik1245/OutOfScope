@@ -1,5 +1,8 @@
-﻿using _Project.Develop.Runtime.Infrastructure.SceneManagment;
-using _Project.Develop.Runtime.Utils.ConfigsManagment;
+﻿using _Project.Develop.Runtime.App.Gameplay;
+using _Project.Develop.Runtime.App.MainMenu;
+using _Project.Develop.Runtime.Infrastructure.ConfigsManagment;
+using _Project.Develop.Runtime.Infrastructure.SceneManagment;
+using UnityEngine;
 
 namespace _Project.Develop.Runtime.App.Navigation
 {
@@ -16,14 +19,14 @@ namespace _Project.Develop.Runtime.App.Navigation
 
         private SceneNavigationConfig Config => _configsProviderService.Get<SceneNavigationConfig>();
         
-        public void OpenMainMenu()
+        public void OpenMainMenu(MainMenuInputArgs args)
         {
-            _sceneLoader.Load(Config.MainMenuSceneName);
+            _sceneLoader.Load(Config.MainMenuSceneName, args);
         }
         
-        public void OpenGameplay()
+        public void OpenGameplay(GameplayInputArgs args)
         {
-            _sceneLoader.Load(Config.GameplaySceneName);
+            _sceneLoader.Load(Config.GameplaySceneName, args);
         }
     }
 }

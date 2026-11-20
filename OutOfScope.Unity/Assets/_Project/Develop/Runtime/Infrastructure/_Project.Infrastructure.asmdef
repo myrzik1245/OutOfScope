@@ -1,7 +1,10 @@
 {
     "name": "_Project.Infrastructure",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:5b45766e5861c954ea9b80ccc5982fdf",
+        "GUID:b0214a6008ed146ff8f122a6a9c2f6cc"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

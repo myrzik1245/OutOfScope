@@ -1,4 +1,4 @@
-﻿using _Project.Develop.Runtime.Utils.ConditionsManagment;
+﻿using _Project.Develop.Runtime.Utils.Conditions;
 using _Project.Develop.Runtime.Utils.StateMachineCore.Node;
 using _Project.Develop.Runtime.Utils.StateMachineCore.States;
 using System;

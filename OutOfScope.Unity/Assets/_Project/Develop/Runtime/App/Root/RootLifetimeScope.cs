@@ -1,10 +1,11 @@
 ﻿using _Project.Develop.Runtime.App.Navigation;
+using _Project.Develop.Runtime.Infrastructure.AssetsManagment;
+using _Project.Develop.Runtime.Infrastructure.ConfigsManagment;
+using _Project.Develop.Runtime.Infrastructure.ConfigsManagment.Loaders;
+using _Project.Develop.Runtime.Infrastructure.CoroutineManagment;
+using _Project.Develop.Runtime.Infrastructure.ProcessManagment;
 using _Project.Develop.Runtime.Infrastructure.SceneManagment;
-using _Project.Develop.Runtime.Utils.AssetsManagment;
-using _Project.Develop.Runtime.Utils.ConfigsManagment;
-using _Project.Develop.Runtime.Utils.ConfigsManagment.Loaders;
-using _Project.Develop.Runtime.Utils.CoroutineManagment;
-using _Project.Develop.Runtime.Utils.ProcessManagment;
+using _Project.Develop.Runtime.Meta.Features.LevelsFeature;
 using System;
 using System.Collections.Generic;
 using VContainer;
@@ -34,6 +35,7 @@ namespace _Project.Develop.Runtime.App.Root
                 .WithParameter("configPaths", new Dictionary<Type, string>
                 {
                     { typeof(SceneNavigationConfig), "Configs/Core/SceneNavigationConfig" },
+                    { typeof(LevelsConfig), "Configs/Gameplay/Levels/LevelsConfig" },
                 });
         }
     }

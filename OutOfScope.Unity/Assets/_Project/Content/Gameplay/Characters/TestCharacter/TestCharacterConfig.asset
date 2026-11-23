@@ -15,4 +15,4 @@ MonoBehaviour:
   <PrefabPath>k__BackingField: Gameplay/Characters/TestCharacter
   <StartHealth>k__BackingField: 1
   <MaxHealth>k__BackingField: 1
-  <Lifetime>k__BackingField: 1
+  <Lifetime>k__BackingField: 1.5

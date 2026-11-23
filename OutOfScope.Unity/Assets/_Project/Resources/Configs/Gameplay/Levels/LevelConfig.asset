@@ -13,5 +13,13 @@ MonoBehaviour:
   m_Name: LevelConfig
   m_EditorClassIdentifier: _Project.Runtime::_Project.Develop.Runtime.Meta.Features.LevelsFeature.LevelConfig
   <SpawnRate>k__BackingField: 1
+  <PlayerHealth>k__BackingField: 10
+  <PlayerMaxHealth>k__BackingField: 10
+  <EnemyDamage>k__BackingField: 1
+  <PlayerDamage>k__BackingField: 1
+  <ScoreByEnemy>k__BackingField: 1
+  <ScoreToWin>k__BackingField: 10
+  <CurrencyTypeByKill>k__BackingField: 0
+  <CurrencyAmountByKill>k__BackingField: 10
   _characters:
   - {fileID: 11400000, guid: 2f297af0f827b0b419ae1146b334c5dc, type: 2}

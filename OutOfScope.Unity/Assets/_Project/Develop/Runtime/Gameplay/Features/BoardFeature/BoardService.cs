@@ -14,7 +14,7 @@ namespace _Project.Develop.Runtime.Gameplay.Features.BoardFeature
 
         private List<IDisposable> _subscriptions = new();
         
-        private readonly ReactiveEvent<ICharacter> _characterDied = new();
+        private readonly ReactiveEvent _characterDied = new();
         private readonly ReactiveEvent _characterHided = new();
 
         public BoardService(IHoleContainer holesContainer)
@@ -25,15 +25,15 @@ namespace _Project.Develop.Runtime.Gameplay.Features.BoardFeature
             {
                 _holesMap.Add(i, hole);
 
-                _subscriptions.Add(hole.CharacterDied.Subscribe(character => _characterDied.Invoke(character)));
+                _subscriptions.Add(hole.CharacterDied.Subscribe(() => _characterDied.Invoke()));
                 _subscriptions.Add(hole.CharacterHided.Subscribe(() => _characterHided.Invoke()));
                 
                 i++;
             }
         }
 
-        public IReadOnlyReactiveEvent CharacterHided => _characterHided;
-        public IReadOnlyReactiveEvent<ICharacter> CharacterDied => _characterDied;
+        public IReadOnlyReactiveEvent EnemyHided => _characterHided;
+        public IReadOnlyReactiveEvent EnemyDied => _characterDied;
 
         public bool TryDamage(int index, int damage)
         {

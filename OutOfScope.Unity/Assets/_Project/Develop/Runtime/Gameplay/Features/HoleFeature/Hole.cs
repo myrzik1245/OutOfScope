@@ -11,13 +11,13 @@ namespace _Project.Develop.Runtime.Gameplay.Features.HoleFeature
         private ICharacter _character;
         
         private readonly ReactiveEvent _characterHided = new();
-        private readonly ReactiveEvent<ICharacter> _characterDied = new();
+        private readonly ReactiveEvent _characterDied = new();
         private readonly List<IDisposable> _characterSubscriptions = new();
         
         public bool HasCharacter => _character != null;
 
         public IReadOnlyReactiveEvent CharacterHided => _characterHided;
-        public IReadOnlyReactiveEvent<ICharacter> CharacterDied => _characterDied;
+        public IReadOnlyReactiveEvent CharacterDied => _characterDied;
 
         public bool CanSetupCharacter()
         {
@@ -59,7 +59,7 @@ namespace _Project.Develop.Runtime.Gameplay.Features.HoleFeature
 
         private void OnDied()
         {
-            _characterDied.Invoke(_character);
+            _characterDied.Invoke();
             ReleaseCharacter();
         }
 

@@ -5,7 +5,6 @@ using _Project.Develop.Runtime.Gameplay.Features.HoleFeature;
 using _Project.Develop.Runtime.Infrastructure.ConfigsManagment;
 using _Project.Develop.Runtime.Infrastructure.CoroutineManagment;
 using _Project.Develop.Runtime.Meta.Features.LevelsFeature;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,15 +13,13 @@ using Random = UnityEngine.Random;
 
 namespace _Project.Develop.Runtime.Gameplay.Features.SpawnFeature
 {
-    public class CharactersSpawnerService : IInitializable
+    public class CharactersSpawnerService : IInitializable, ICharacterSpawner
     {
         private readonly ConfigsProviderService _configs;
         private readonly IBoardService _boardService;
         private readonly ICoroutinePerformer _coroutinePerformer;
         private readonly CharactersFactory _charactersFactory;
         private readonly GameplayInputArgs _gameplayInputArgs;
-
-        private Coroutine _spawnProcess;
 
         public CharactersSpawnerService(
             ConfigsProviderService configs,
@@ -39,10 +36,21 @@ namespace _Project.Develop.Runtime.Gameplay.Features.SpawnFeature
         }
         
         private LevelConfig LevelConfig => _configs.Get<LevelsConfig>().Levels[_gameplayInputArgs.LevelIndex];
+        public bool Enabled { get; private set; }
+        
+        public void Enable()
+        {
+            Enabled = true;
+        }
+
+        public void Disable()
+        {
+            Enabled = false;
+        }
 
         public void Initialize()
         {
-            _spawnProcess = _coroutinePerformer.StartPerform(SpawnProcess());
+            _coroutinePerformer.StartPerform(SpawnProcess());
         }
 
         private IEnumerator SpawnProcess()
@@ -51,9 +59,11 @@ namespace _Project.Develop.Runtime.Gameplay.Features.SpawnFeature
             {
                 yield return new WaitForSeconds(LevelConfig.SpawnRate);
 
+                yield return new WaitUntil(() => Enabled);
+                
                 if (_boardService.TryGetFreeHole(out IHole hole) == false)
                     yield return null;
-
+                
                 if (_boardService.CanSetupCharacter(hole))
                     _boardService.SetupCharacter(hole, _charactersFactory.Create(GetRandomCharacterConfig()));
             }

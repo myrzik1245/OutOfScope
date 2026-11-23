@@ -7,7 +7,7 @@ namespace _Project.Develop.Runtime.Gameplay.Features.HoleFeature
     {
         bool HasCharacter { get; }
         IReadOnlyReactiveEvent CharacterHided { get; }
-        IReadOnlyReactiveEvent<ICharacter> CharacterDied { get; }
+        IReadOnlyReactiveEvent CharacterDied { get; }
     }
 
 }

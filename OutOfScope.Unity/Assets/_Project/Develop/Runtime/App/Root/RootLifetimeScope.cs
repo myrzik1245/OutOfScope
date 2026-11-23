@@ -3,9 +3,12 @@ using _Project.Develop.Runtime.Infrastructure.AssetsManagment;
 using _Project.Develop.Runtime.Infrastructure.ConfigsManagment;
 using _Project.Develop.Runtime.Infrastructure.ConfigsManagment.Loaders;
 using _Project.Develop.Runtime.Infrastructure.CoroutineManagment;
+using _Project.Develop.Runtime.Infrastructure.InputService;
+using _Project.Develop.Runtime.Infrastructure.InputService.Keyboard;
 using _Project.Develop.Runtime.Infrastructure.ProcessManagment;
 using _Project.Develop.Runtime.Infrastructure.SceneManagment;
 using _Project.Develop.Runtime.Meta.Features.LevelsFeature;
+using _Project.Develop.Runtime.Meta.Features.WalletFeature;
 using System;
 using System.Collections.Generic;
 using VContainer;
@@ -25,6 +28,8 @@ namespace _Project.Develop.Runtime.App.Root
             
             builder.Register<ISceneLoader, SimpleSceneLoader>(Lifetime.Singleton);
             builder.Register<IAssetsLoader, ResourcesAssetsLoader>(Lifetime.Singleton);
+            builder.Register<KeyboardInput>(Lifetime.Singleton).AsImplementedInterfaces();
+            builder.Register<Wallet>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
 
             builder.RegisterComponentOnNewGameObject<CoroutinePerformer>(Lifetime.Singleton).As<ICoroutinePerformer>();
         }

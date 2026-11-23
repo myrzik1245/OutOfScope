@@ -5,7 +5,7 @@ namespace _Project.Develop.Runtime.Gameplay.Features.BoardFeature
 {
     public interface IReadOnlyBoardService
     {
-        IReadOnlyReactiveEvent CharacterHided  { get; }
-        IReadOnlyReactiveEvent<ICharacter> CharacterDied { get; }
+        IReadOnlyReactiveEvent EnemyHided  { get; }
+        IReadOnlyReactiveEvent EnemyDied { get; }
     }
 }

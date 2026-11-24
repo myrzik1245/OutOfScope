@@ -6,6 +6,7 @@ using _Project.Develop.Runtime.Gameplay.Features.ScoreFeature;
 using _Project.Develop.Runtime.Infrastructure.ConfigsManagment;
 using _Project.Develop.Runtime.Infrastructure.InputService;
 using _Project.Develop.Runtime.Meta.Features.LevelsFeature;
+using _Project.Develop.Runtime.Meta.Features.LevelsProgressionFeature;
 using _Project.Develop.Runtime.Meta.Features.WalletFeature;
 using _Project.Develop.Runtime.Utils.Conditions;
 
@@ -21,6 +22,7 @@ namespace _Project.Develop.Runtime.Gameplay.Features.GameLoop
         private readonly ConfigsProviderService _configsProviderService;
         private readonly GameSession _gameSession;
         private readonly Wallet _wallet;
+        private readonly LevelsProgressionService _levelsProgressionService;
 
         public GameplayStatesFactory(
             IInputService inputService,
@@ -30,7 +32,8 @@ namespace _Project.Develop.Runtime.Gameplay.Features.GameLoop
             ScoreService scoreService,
             ConfigsProviderService configsProviderService,
             GameSession gameSession,
-            Wallet wallet)
+            Wallet wallet,
+            LevelsProgressionService levelsProgressionService)
         {
             _inputService = inputService;
             _sceneNavigation = sceneNavigation;
@@ -40,6 +43,7 @@ namespace _Project.Develop.Runtime.Gameplay.Features.GameLoop
             _configsProviderService = configsProviderService;
             _gameSession = gameSession;
             _wallet = wallet;
+            _levelsProgressionService = levelsProgressionService;
         }
 
         private LevelConfig LevelConfig => _configsProviderService.Get<LevelsConfig>().Levels[_gameplayInputArgs.LevelIndex];
@@ -58,7 +62,9 @@ namespace _Project.Develop.Runtime.Gameplay.Features.GameLoop
                 _inputService,
                 _sceneNavigation,
                 _wallet,
-                _gameSession);
+                _gameSession,
+                _levelsProgressionService,
+                _gameplayInputArgs);
             
             ICondition gameProcessToLose = new CompositeCondition(
                 new FuncCondition(() => _playerService.IsDead.Value));

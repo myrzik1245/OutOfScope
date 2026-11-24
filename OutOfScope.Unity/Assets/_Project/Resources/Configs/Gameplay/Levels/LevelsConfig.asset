@@ -14,3 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: _Project.Runtime::_Project.Develop.Runtime.Meta.Features.LevelsFeature.LevelsConfig
   _levels:
   - {fileID: 11400000, guid: 0e3afce74380e6c4e96c5b5212d4c727, type: 2}
+  - {fileID: 11400000, guid: 0e3afce74380e6c4e96c5b5212d4c727, type: 2}
+  - {fileID: 11400000, guid: 0e3afce74380e6c4e96c5b5212d4c727, type: 2}
+  - {fileID: 11400000, guid: 0e3afce74380e6c4e96c5b5212d4c727, type: 2}
+  - {fileID: 11400000, guid: 0e3afce74380e6c4e96c5b5212d4c727, type: 2}
+  - {fileID: 11400000, guid: 0e3afce74380e6c4e96c5b5212d4c727, type: 2}
+  - {fileID: 11400000, guid: 0e3afce74380e6c4e96c5b5212d4c727, type: 2}
+  - {fileID: 11400000, guid: 0e3afce74380e6c4e96c5b5212d4c727, type: 2}
+  - {fileID: 11400000, guid: 0e3afce74380e6c4e96c5b5212d4c727, type: 2}

@@ -83,7 +83,6 @@ namespace _Project.Develop.Runtime.Gameplay.Features.GameLoop
 
         private void OnNumPadKeyPressed(int number)
         {
-            Debug.Log(number);
             _boardService.TryDamage(number, LevelConfig.PlayerDamage);
         }
         

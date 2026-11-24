@@ -24,7 +24,7 @@ namespace _Project.Develop.Runtime.Infrastructure.InputService.Keyboard
             for (int i = 1; i < 10; i++)
             {
                 KeyCode key = KeyCode.Alpha0 + i;
-                
+
                 if (Input.GetKeyDown(key))
                     _numPadKeyPressed.Invoke(i);
             }

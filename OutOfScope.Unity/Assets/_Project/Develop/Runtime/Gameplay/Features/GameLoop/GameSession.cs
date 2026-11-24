@@ -17,7 +17,7 @@ namespace _Project.Develop.Runtime.Gameplay.Features.GameLoop
     {
         private readonly IBoardService _boardService;
         private readonly IPlayerService _playerService;
-        private readonly ICharacterSpawner _characterSpawner;
+        private readonly ICharactersSpawner _charactersSpawner;
         private readonly ConfigsProviderService _configsProviderService;
         private readonly GameplayInputArgs _gameplayInputArgs;
         private readonly ScoreService _scoreService;
@@ -29,7 +29,7 @@ namespace _Project.Develop.Runtime.Gameplay.Features.GameLoop
         public GameSession(
             IBoardService boardService,
             IPlayerService playerService,
-            ICharacterSpawner characterSpawner,
+            ICharactersSpawner charactersSpawner,
             ConfigsProviderService configsProviderService,
             GameplayInputArgs gameplayInputArgs,
             ScoreService scoreService,
@@ -37,7 +37,7 @@ namespace _Project.Develop.Runtime.Gameplay.Features.GameLoop
         {
             _boardService = boardService;
             _playerService = playerService;
-            _characterSpawner = characterSpawner;
+            _charactersSpawner = charactersSpawner;
             _configsProviderService = configsProviderService;
             _gameplayInputArgs = gameplayInputArgs;
             _scoreService = scoreService;
@@ -49,7 +49,7 @@ namespace _Project.Develop.Runtime.Gameplay.Features.GameLoop
         
         public void Start()
         {
-            _characterSpawner.Enable();
+            _charactersSpawner.Enable();
             
             _subscriptions.Add(_boardService.EnemyDied.Subscribe(OnEnemyDied));
             _subscriptions.Add(_boardService.EnemyHided.Subscribe(OnEnemyHided));
@@ -58,7 +58,7 @@ namespace _Project.Develop.Runtime.Gameplay.Features.GameLoop
 
         public void Stop()
         {
-            _characterSpawner.Disable();
+            _charactersSpawner.Disable();
             Cleanup();
         }
 

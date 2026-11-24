@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c3a21242a1e4468bda26a94b6c46b89, type: 3}
   m_Name: SceneNavigationConfig
   m_EditorClassIdentifier: _Project.Runtime::_Project.Develop.Runtime._Project.Develop.Runtime.App.Navigation.SceneNavigationConfig
-  _mainMenuScene: {fileID: 102900000, guid: 63d0932698cc66243a7369694d7a0389, type: 3}
-  _gameplayScene: {fileID: 102900000, guid: 3a8826dec643561449bb038c5e12da06, type: 3}
+  <MainMenuSceneName>k__BackingField: MainMenu
+  <GameplaySceneName>k__BackingField: Gameplay

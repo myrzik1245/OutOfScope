@@ -4,6 +4,7 @@ using _Project.Develop.Runtime.Infrastructure.InputService;
 using _Project.Develop.Runtime.Meta.Features.LevelsProgressionFeature;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 using VContainer.Unity;
 
 namespace _Project.Develop.Runtime.Meta.Features.SelectLevelFeature
@@ -45,6 +46,8 @@ namespace _Project.Develop.Runtime.Meta.Features.SelectLevelFeature
 
             if (_levelsProgressionService.IsLevelUnlocked(index))
                 _sceneNavigation.OpenGameplay(new GameplayInputArgs(index));
+            else
+                Debug.Log($"Level {number} is locked");
         }
     }
 }

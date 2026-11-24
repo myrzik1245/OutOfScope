@@ -15,12 +15,12 @@ namespace _Project.Develop.Runtime.App.Gameplay
         protected override void Configure(IContainerBuilder builder)
         {
             builder.RegisterEntryPoint<GameplayBootstrap>();
+            builder.Register<ICharactersSpawner, CharactersesSpawnerService>(Lifetime.Singleton);
             builder.RegisterComponentInHierarchy<HolesContainer>().As<IHoleContainer>();
             
             builder.Register<CharactersFactory>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
             builder.Register<GameplayStatesFactory>(Lifetime.Singleton);
             builder.Register<BoardService>(Lifetime.Singleton).AsImplementedInterfaces();
-            builder.Register<CharactersSpawnerService>(Lifetime.Singleton).AsImplementedInterfaces();
             builder.Register<PlayerService>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
             builder.Register<ScoreService>(Lifetime.Singleton);
             builder.Register<GameSession>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();

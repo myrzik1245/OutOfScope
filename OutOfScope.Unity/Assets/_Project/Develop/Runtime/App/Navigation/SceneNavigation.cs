@@ -2,7 +2,6 @@
 using _Project.Develop.Runtime.App.MainMenu;
 using _Project.Develop.Runtime.Infrastructure.ConfigsManagment;
 using _Project.Develop.Runtime.Infrastructure.SceneManagment;
-using UnityEngine;
 
 namespace _Project.Develop.Runtime.App.Navigation
 {

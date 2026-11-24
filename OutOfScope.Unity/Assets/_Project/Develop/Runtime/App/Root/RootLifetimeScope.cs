@@ -44,7 +44,8 @@ namespace _Project.Develop.Runtime.App.Root
                 .WithParameter("configPaths", new Dictionary<Type, string>
                 {
                     { typeof(SceneNavigationConfig), "Configs/Core/SceneNavigationConfig" },
-                    { typeof(LevelsConfig), "Configs/Gameplay/Levels/LevelsConfig" },
+                    { typeof(LevelsConfig), "Configs/Meta/LevelsConfig" },
+                    { typeof(WalletStartConfig), "Configs/Meta/WalletStartConfig" },
                 });
         }
     }

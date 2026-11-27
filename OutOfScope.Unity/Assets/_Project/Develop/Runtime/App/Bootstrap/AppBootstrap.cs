@@ -1,13 +1,14 @@
-﻿using _Project.Develop.Runtime.App.MainMenu;
-using _Project.Develop.Runtime.App.Navigation;
+﻿using _Project.Develop.Runtime.App.Navigation;
 using _Project.Develop.Runtime.Infrastructure.ConfigsManagment;
 using _Project.Develop.Runtime.Meta.Features.LevelsProgressionFeature;
 using _Project.Develop.Runtime.Meta.Features.WalletFeature;
+using Cysharp.Threading.Tasks;
+using System.Threading;
 using VContainer.Unity;
 
 namespace _Project.Develop.Runtime.App.Bootstrap
 {
-    public class AppBootstrap : IStartable
+    public class AppBootstrap : IAsyncStartable
     {
         private readonly SceneNavigation _sceneNavigation;
         private readonly ConfigsProviderService _configsProviderService;
@@ -26,11 +27,11 @@ namespace _Project.Develop.Runtime.App.Bootstrap
             _wallet = wallet;
         }
 
-        public void Start()
+        public async UniTask StartAsync(CancellationToken cancellationToken)
         {
             SetupApp();
             
-            _configsProviderService.Load();
+            await _configsProviderService.Load(cancellationToken);
 
             foreach (WalletSlotConfigData walletSlotConfigData in _configsProviderService.Get<WalletStartConfig>().StartSlotData)
                 _wallet.Add(walletSlotConfigData.Type, walletSlotConfigData.Amount);
@@ -38,7 +39,7 @@ namespace _Project.Develop.Runtime.App.Bootstrap
             _levelsProgressionService.Initialize();
             _levelsProgressionService.UnlockLevel(0);
             
-            _sceneNavigation.OpenMainMenu(new MainMenuInputArgs());
+            _sceneNavigation.OpenMainMenu();
         }
 
         private void SetupApp()

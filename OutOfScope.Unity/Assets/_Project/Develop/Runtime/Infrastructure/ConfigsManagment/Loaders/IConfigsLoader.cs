@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Cysharp.Threading.Tasks;
+using System;
+using System.Threading;
 
 namespace _Project.Develop.Runtime.Infrastructure.ConfigsManagment.Loaders
 {
     public interface IConfigsLoader
     {
-        public void Load(Action<Type, object> onLoad);
+        UniTask LoadAsync(Action<Type, object> onLoad, CancellationToken cancellationToken);
     }
 }

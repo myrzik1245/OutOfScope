@@ -1,6 +1,8 @@
 ﻿using _Project.Develop.Runtime.Infrastructure.ConfigsManagment.Loaders;
+using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace _Project.Develop.Runtime.Infrastructure.ConfigsManagment
 {
@@ -14,10 +16,14 @@ namespace _Project.Develop.Runtime.Infrastructure.ConfigsManagment
             _loaders = loaders;
         }
 
-        public void Load()
+        public async UniTask Load(CancellationToken cancellationToken)
         {
+            List<UniTask> tasks = new();
+            
             foreach (IConfigsLoader loader in _loaders)
-                loader.Load(AddConfig);
+                tasks.Add(loader.LoadAsync(AddConfig, cancellationToken));
+            
+            await UniTask.WhenAll(tasks);
         }
 
         public T Get<T>() where T : class

@@ -1,6 +1,8 @@
-﻿namespace _Project.Develop.Runtime.App.MainMenu
+﻿using _Project.Develop.Runtime.Infrastructure.SceneManagment;
+
+namespace _Project.Develop.Runtime.App.MainMenu
 {
-    public class MainMenuInputArgs
+    public class MainMenuInputArgs : ISceneInputArgs
     {
     }
 }

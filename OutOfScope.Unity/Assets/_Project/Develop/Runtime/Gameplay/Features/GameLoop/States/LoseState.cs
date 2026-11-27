@@ -1,5 +1,4 @@
 ﻿using _Project.Develop.Runtime.App.Gameplay;
-using _Project.Develop.Runtime.App.MainMenu;
 using _Project.Develop.Runtime.App.Navigation;
 using _Project.Develop.Runtime.Infrastructure.InputService;
 using _Project.Develop.Runtime.Utils.StateMachineCore.States;
@@ -33,9 +32,9 @@ namespace _Project.Develop.Runtime.Gameplay.Features.GameLoop.States
         public void Update(float deltaTime)
         {
             if (_inputService.Exit.Down)
-                _sceneNavigation.OpenMainMenu(new MainMenuInputArgs());
+                _sceneNavigation.OpenMainMenu();
             if (_inputService.Continue.Down)
-                _sceneNavigation.OpenGameplay(new GameplayInputArgs(_gameplayInputArgs.LevelIndex));
+                _sceneNavigation.OpenGameplay(_gameplayInputArgs.LevelIndex);
         }
     }
 }

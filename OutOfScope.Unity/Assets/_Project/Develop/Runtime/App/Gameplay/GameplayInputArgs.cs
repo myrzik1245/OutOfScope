@@ -1,6 +1,8 @@
-﻿namespace _Project.Develop.Runtime.App.Gameplay
+﻿using _Project.Develop.Runtime.Infrastructure.SceneManagment;
+
+namespace _Project.Develop.Runtime.App.Gameplay
 {
-    public class GameplayInputArgs
+    public class GameplayInputArgs : ISceneInputArgs
     {
         public GameplayInputArgs(int levelIndex)
         {

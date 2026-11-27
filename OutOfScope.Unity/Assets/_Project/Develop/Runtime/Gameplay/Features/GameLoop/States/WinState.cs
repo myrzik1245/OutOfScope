@@ -49,7 +49,7 @@ namespace _Project.Develop.Runtime.Gameplay.Features.GameLoop.States
         public void Update(float deltaTime)
         {
             if (_inputService.Continue.Down)
-                _sceneNavigation.OpenMainMenu(new MainMenuInputArgs());
+                _sceneNavigation.OpenMainMenu();
         }
     }
 }

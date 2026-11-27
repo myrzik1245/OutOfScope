@@ -1,6 +1,8 @@
 ﻿using _Project.Develop.Runtime.Infrastructure.AssetsManagment;
+using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 namespace _Project.Develop.Runtime.Infrastructure.ConfigsManagment.Loaders
@@ -16,17 +18,28 @@ namespace _Project.Develop.Runtime.Infrastructure.ConfigsManagment.Loaders
             _configPaths = configPaths;
         }
 
-        public void Load(Action<Type, object> onLoad)
+        public async UniTask LoadAsync(Action<Type, object> onLoad, CancellationToken cancellationToken)
         {
+            List<UniTask> tasks = new();
+            
             foreach (KeyValuePair<Type, string> configPath in _configPaths)
-            {
-                ScriptableObject config = _assetsLoader.Load<ScriptableObject>(configPath.Value);
-                
-                if (config == null)
-                    throw new InvalidOperationException($"Config {configPath.Key} not found");
+                tasks.Add(LoadConfigAsync(configPath.Key, configPath.Value, onLoad, cancellationToken));
 
-                onLoad(configPath.Key, config);
-            }
+            await UniTask.WhenAll(tasks);
+        }
+
+        private async UniTask LoadConfigAsync(
+            Type type,
+            string path,
+            Action<Type, object> onLoad,
+            CancellationToken cancellationToken)
+        {
+            ScriptableObject config = await _assetsLoader.LoadAsync<ScriptableObject>(path, cancellationToken);
+                
+            if (config == null)
+                throw new InvalidOperationException($"Config {type} not found with path {path}");
+            
+            onLoad(type, config);
         }
     }
 }

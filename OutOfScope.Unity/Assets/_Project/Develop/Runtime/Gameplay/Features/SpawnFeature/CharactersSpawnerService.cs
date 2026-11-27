@@ -3,67 +3,75 @@ using _Project.Develop.Runtime.Gameplay.Features.BoardFeature;
 using _Project.Develop.Runtime.Gameplay.Features.CharactersFeature;
 using _Project.Develop.Runtime.Gameplay.Features.HoleFeature;
 using _Project.Develop.Runtime.Infrastructure.ConfigsManagment;
-using _Project.Develop.Runtime.Infrastructure.CoroutineManagment;
 using _Project.Develop.Runtime.Meta.Features.LevelsFeature;
-using System.Collections;
+using Cysharp.Threading.Tasks;
+using System;
 using System.Collections.Generic;
-using UnityEngine;
+using System.Threading;
 using Random = UnityEngine.Random;
 
 namespace _Project.Develop.Runtime.Gameplay.Features.SpawnFeature
 {
-    public class CharactersesSpawnerService : ICharactersSpawner
+    public class CharactersSpawnerService : ICharactersSpawner, IDisposable
     {
         private readonly ConfigsProviderService _configs;
         private readonly IBoardService _boardService;
-        private readonly ICoroutinePerformer _coroutinePerformer;
         private readonly CharactersFactory _charactersFactory;
         private readonly GameplayInputArgs _gameplayInputArgs;
-
-        private Coroutine _spawnProcess;
         
-        public CharactersesSpawnerService(
+        private CancellationTokenSource _spawnProcess;
+
+        public CharactersSpawnerService(
             ConfigsProviderService configs,
             IBoardService boardService,
-            ICoroutinePerformer coroutinePerformer,
             CharactersFactory charactersFactory,
             GameplayInputArgs gameplayInputArgs)
         {
             _configs = configs;
             _boardService = boardService;
-            _coroutinePerformer = coroutinePerformer;
             _charactersFactory = charactersFactory;
             _gameplayInputArgs = gameplayInputArgs;
         }
-        
+
         private LevelConfig LevelConfig => _configs.Get<LevelsConfig>().Levels[_gameplayInputArgs.LevelIndex];
         public bool Enabled { get; private set; }
-        
+
         public void Enable()
         {
-            _spawnProcess = _coroutinePerformer.StartPerform(SpawnProcess());
+            CancelSpawnProcess();
+            _spawnProcess = new CancellationTokenSource();
             
+            SpawnProcess(_spawnProcess.Token).Forget();
+
             Enabled = true;
         }
 
         public void Disable()
         {
-            _coroutinePerformer.StopPerform(_spawnProcess);
-            
+            CancelSpawnProcess();
+
             Enabled = false;
         }
 
-        private IEnumerator SpawnProcess()
+        public void Dispose()
+        {
+            CancelSpawnProcess();
+        }
+
+        private async UniTaskVoid SpawnProcess(CancellationToken cancellationToken)
         {
             while (true)
             {
-                yield return new WaitForSeconds(LevelConfig.SpawnRate);
+                await UniTask.Delay(TimeSpan.FromSeconds(LevelConfig.SpawnRate), cancellationToken: cancellationToken);
 
                 if (_boardService.TryGetFreeHole(out IHole hole) == false)
                     continue;
-                
+
                 if (_boardService.CanSetupCharacter(hole))
-                    _boardService.SetupCharacter(hole, _charactersFactory.Create(GetRandomCharacterConfig()));
+                {
+                    ICharacter character = await _charactersFactory.Create(GetRandomCharacterConfig(), cancellationToken);
+                    _boardService.SetupCharacter(hole, character);
+                }
             }
         }
 
@@ -71,8 +79,15 @@ namespace _Project.Develop.Runtime.Gameplay.Features.SpawnFeature
         {
             IReadOnlyList<CharacterConfig> characters = LevelConfig.Characters;
             int randomIndex = Random.Range(0, characters.Count);
-            
+
             return characters[randomIndex];
+        }
+        
+        private void CancelSpawnProcess()
+        {
+            _spawnProcess?.Cancel();
+            _spawnProcess?.Dispose();
+            _spawnProcess = null;
         }
     }
 }

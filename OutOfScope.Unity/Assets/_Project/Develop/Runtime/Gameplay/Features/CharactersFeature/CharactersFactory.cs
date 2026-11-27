@@ -1,7 +1,9 @@
 ﻿using _Project.Develop.Runtime.Infrastructure.AssetsManagment;
 using _Project.Develop.Runtime.Infrastructure.ProcessManagment;
+using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using VContainer;
 using VContainer.Unity;
 using Object = UnityEngine.Object;
@@ -26,9 +28,9 @@ namespace _Project.Develop.Runtime.Gameplay.Features.CharactersFeature
             _processFactory = processFactory;
         }
 
-        public ICharacter Create(CharacterConfig config)
+        public async UniTask<ICharacter> Create(CharacterConfig config, CancellationToken cancellationToken)
         {
-            Character prefab = _assetsLoader.Load<Character>(config.PrefabPath);
+            Character prefab = await _assetsLoader.LoadAsync<Character>(config.PrefabPath, cancellationToken);
             Character instance = _objectResolver.Instantiate(prefab);
 
             IProcess hideProcess = _processFactory.CreateProcess(config.Lifetime);

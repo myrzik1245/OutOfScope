@@ -1,5 +1,4 @@
-﻿using _Project.Develop.Runtime.App.Gameplay;
-using _Project.Develop.Runtime.App.Navigation;
+﻿using _Project.Develop.Runtime.App.Navigation;
 using _Project.Develop.Runtime.Infrastructure.InputService;
 using _Project.Develop.Runtime.Meta.Features.LevelsProgressionFeature;
 using System;
@@ -45,7 +44,7 @@ namespace _Project.Develop.Runtime.Meta.Features.SelectLevelFeature
             int index = number - 1;
 
             if (_levelsProgressionService.IsLevelUnlocked(index))
-                _sceneNavigation.OpenGameplay(new GameplayInputArgs(index));
+                _sceneNavigation.OpenGameplay(index);
             else
                 Debug.Log($"Level {number} is locked");
         }
